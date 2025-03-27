@@ -1,0 +1,6 @@
+---
+- name: Playbook maestro MAIN DEMO.
+  hosts: Windows_node1
+  gather_facts: false
+  roles:
+    - role: wintel_readiness
