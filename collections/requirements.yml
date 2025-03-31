@@ -6,3 +6,4 @@ collections:
     version: '>=2.7.0'
   - name: 'pichincha.sre'
     version: '>=1.0.1'
+    source: 'https://192.168.64.9/pulp_ansible/galaxy/published/'
