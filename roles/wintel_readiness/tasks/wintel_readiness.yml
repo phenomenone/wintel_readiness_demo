@@ -1,6 +1,6 @@
 ---
 - name: import windows readiness role from a pichincha.sre
-  include_role:
+  import_role:
     name: wintel_readiness
   vars:
     win_app_pools:
