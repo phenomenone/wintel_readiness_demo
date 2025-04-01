@@ -1,0 +1,19 @@
+---
+ - name: check installed Collections
+   hosts: localhost
+   gather_facts: false
+   tasks:
+     - name: Check installed collections
+       ansible.builtin.command: ansible-galaxy collection list
+       register: result
+ 
+     - name: Display installed collections
+       ansible.builtin.debug:
+         var: result.stdout_lines
+ 
+     - name: Check if pichincha.sre is installed
+       ansible.builtin.assert:
+         that:
+           - "'pichincha.sre' in result.stdout"
+         fail_msg: "The collection pichincha.sre is not installed."
+         success_msg: "The collection pichincha.sre is installed."
