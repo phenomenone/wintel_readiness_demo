@@ -6,7 +6,7 @@
 #       - New-apppool-test-2
 
 - name: import windows readiness role from a pichincha.sre
-  anible.builtin.import_role: 
+  ansible.builtin.import_role: 
     name: pichincha.sre.wintel_readiness
     win_app_pools:
       - New-apppool-test
