@@ -5,10 +5,21 @@
 #       - New-apppool-test
 #       - New-apppool-test-2
 
+# - name: import windows readiness role from a pichincha.sre
+#   ansible.builtin.include_role: 
+#     name: pichincha.sre.wintel_readiness
+#     vars:
+#       win_app_pools:
+#         - New-apppool-test
+#         - New-apppool-test-2
+#       win_services:
+#         - New-service-test
+#         - New-service-test-2
+#       url_monitoreo:
+#         - https://example.com
+
 - name: import windows readiness role from a pichincha.sre
-  ansible.builtin.include_role: 
-    name: pichincha.sre.wintel_readiness
-    vars:
+  pichincha.sre.wintel_readiness: 
       win_app_pools:
         - New-apppool-test
         - New-apppool-test-2
@@ -17,4 +28,5 @@
         - New-service-test-2
       url_monitoreo:
         - https://example.com
+
 
