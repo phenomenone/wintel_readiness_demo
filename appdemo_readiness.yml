@@ -1,6 +1,6 @@
 ---
 - name: Playbook maestro para readiness Appdemo.
-  hosts: all
+  hosts: Windows_node1
   gather_facts: false
   roles:
     - role: appdemo_readiness
