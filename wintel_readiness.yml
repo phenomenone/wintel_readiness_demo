@@ -1,13 +1,13 @@
 ---
 - name: Importando el Role de wintel_readiness desde 'pichincha.sre'
-  ansible.builtin.include_role:
-    name: wintel_readiness
-  vars:
-    win_app_pools:
-      - New-apppool-test
-      - New-apppool-test-2
-    win_services:
-      - New-service-test
-      - New-service-test-2
-    url_monitoreo:
-      - https://example.com
+  roles:
+    - role: wintel_readiness
+      vars:
+        win_app_pools:
+          - New-apppool-test
+          - New-apppool-test-2
+        win_services:
+          - New-service-test
+          - New-service-test-2
+        url_monitoreo:
+          - https://example.com
