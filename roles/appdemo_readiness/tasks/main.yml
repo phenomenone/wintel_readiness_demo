@@ -1,10 +1,12 @@
 - name: Check installed collections
   ansible.builtin.command: ansible-galaxy collection list
   register: result
+  delegate_to: localhost
 
 - name: Display installed collections
   ansible.builtin.debug:
     var: result.stdout_lines
+  delegate_to: localhost
 
 - name: Check if pichincha.sre is installed
   ansible.builtin.assert:
@@ -12,28 +14,29 @@
       - "'pichincha.sre' in result.stdout"
     fail_msg: "The collection pichincha.sre is not installed."
     success_msg: "The collection pichincha.sre is installed."
+  delegate_to: localhost
 
-- name: Importando wintel readiness another
-  pichincha.sre.wintel_readiness:
-    win_app_pools:
-      - New-apppool-test
-      - New-apppool-test-2
-    win_services:
-      - New-service-test
-      - New-service-test-2
-    url_monitoreo:
-      - https://example.com
+# - name: Importando wintel readiness another
+#   pichincha.sre.wintel_readiness:
+#     win_app_pools:
+#       - New-apppool-test
+#       - New-apppool-test-2
+#     win_services:
+#       - New-service-test
+#       - New-service-test-2
+#     url_monitoreo:
+#       - https://example.com
 
-- name: Importando wintel readiness yet another
-  ansible.builtin.include_role:
-    name: pichincha.sre.wintel_readiness
-  vars:
-    win_app_pools:
-      - New-apppool-test
-      - New-apppool-test-2
-    win_services:
-      - New-service-test
-      - New-service-test-2
-    url_monitoreo:
-      - https://example.com
-  ignore_errors: True
+# - name: Importando wintel readiness yet another
+#   ansible.builtin.include_role:
+#     name: pichincha.sre.wintel_readiness
+#   vars:
+#     win_app_pools:
+#       - New-apppool-test
+#       - New-apppool-test-2
+#     win_services:
+#       - New-service-test
+#       - New-service-test-2
+#     url_monitoreo:
+#       - https://example.com
+#   ignore_errors: True
