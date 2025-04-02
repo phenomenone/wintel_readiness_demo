@@ -1,5 +1,5 @@
 - name: Importando wintel readiness
-  ansible.builtin.import_role:
+  ansible.builtin.include_role:
     name: wintel_readiness
   vars:
     win_app_pools:
