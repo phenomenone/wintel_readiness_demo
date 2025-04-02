@@ -6,7 +6,6 @@
 - name: Check installed collections
   ansible.builtin.command: ansible-galaxy collection list
   register: result
-  delegate_to: localhost
 
 - name: Check if pichincha.sre is installed
   ansible.builtin.assert:
