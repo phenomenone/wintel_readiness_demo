@@ -1,6 +1,6 @@
 ---
 - name: import windows readiness role from a pichincha.sre
-  import_role:
+  ansible.builtin.import_role:
     name: wintel_readiness
   vars:
     win_app_pools:
