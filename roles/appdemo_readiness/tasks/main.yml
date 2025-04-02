@@ -12,20 +12,6 @@
       - "'pichincha.sre' in result.stdout"
     fail_msg: "The collection pichincha.sre is not installed."
     success_msg: "The collection pichincha.sre is installed."
-    
-- name: Importando wintel readiness
-  ansible.builtin.import_role:
-    name: wintel_readiness
-  vars:
-    win_app_pools:
-      - New-apppool-test
-      - New-apppool-test-2
-    win_services:
-      - New-service-test
-      - New-service-test-2
-    url_monitoreo:
-      - https://example.com
-  ignore_errors: True
 
 - name: Importando wintel readiness another
   pichincha.sre.wintel_readiness:
@@ -37,3 +23,17 @@
       - New-service-test-2
     url_monitoreo:
       - https://example.com
+
+- name: Importando wintel readiness yet another
+  ansible.builtin.include_role:
+    name: pichincha.sre.wintel_readiness
+  vars:
+    win_app_pools:
+      - New-apppool-test
+      - New-apppool-test-2
+    win_services:
+      - New-service-test
+      - New-service-test-2
+    url_monitoreo:
+      - https://example.com
+  ignore_errors: True
