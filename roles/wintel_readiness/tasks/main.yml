@@ -2,3 +2,4 @@
 # tasks file for configcentralizada_readiness
 - name: Importar tarea readiness
   ansible.builtin.include_tasks: wintel_readiness.yml
+  run_once: true
