@@ -1,13 +1,47 @@
 ---
-- name: Importando el Role de wintel_readiness desde 'pichincha.sre'
-  include_role:
-    name: wintel_readiness
-    vars:
-      win_app_pools:
-        - New-apppool-test
-        - New-apppool-test-2
-      win_services:
-        - New-service-test
-        - New-service-test-2
-      url_monitoreo:
-        - https://example.com
+- name: roleada.
+  roles:
+    - { role: wintel_readiness, 
+          vars: { win_app_pools: [New-apppool-test, New-apppool-test-2]}, 
+          { win_services: [New-service-test,New-service-test2] }, 
+          { url_monitoreo: ['https://example.com']} 
+      }
+  ignore_errors: true
+
+- name: roleada siguiente.
+  roles:
+    - { role: pichincha.sre.wintel_readiness, 
+          vars: { win_app_pools: [New-apppool-test, New-apppool-test-2]}, 
+          { win_services: [New-service-test,New-service-test2] }, 
+          { url_monitoreo: ['https://example.com']} 
+      }
+  ignore_errors: true
+
+# - name: Incluyendo Role de wintel_readiness desde 'pichincha.sre'
+#   include_role:
+#     name: wintel_readiness
+#     vars:
+#       win_app_pools:
+#         - New-apppool-test
+#         - New-apppool-test-2
+#       win_services:
+#         - New-service-test
+#         - New-service-test-2
+#       url_monitoreo:
+#         - https://example.com
+#   ignore_errors: true
+
+# ---
+# - name: Importando Role de wintel_readiness desde 'pichincha.sre'
+#   import_role:
+#     name: wintel_readiness
+#     vars:
+#       win_app_pools:
+#         - New-apppool-test
+#         - New-apppool-test-2
+#       win_services:
+#         - New-service-test
+#         - New-service-test-2
+#       url_monitoreo:
+#         - https://example.com
+#   ignore_errors: true
