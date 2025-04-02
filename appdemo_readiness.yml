@@ -1,0 +1,6 @@
+---
+- name: Playbook maestro para readiness Appdemo.
+  hosts: all
+  gather_facts: false
+  roles:
+    - role: appdemo_readiness
