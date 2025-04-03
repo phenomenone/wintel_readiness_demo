@@ -16,7 +16,7 @@
   register: resultbuild
 
 - name: Install pichincha.sre collection from a repo.
-  ansible.builtin.command: ansible-galaxy collection publish -c - vvvv pichincha-sre-1.0.7tar.gz
+  ansible.builtin.command: ansible-galaxy collection publish -c pichincha-sre-1.0.7.tar.gz -vvvv
   args:
     chdir: /tmp/checkout/
   register: resultpublish
