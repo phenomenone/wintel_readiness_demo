@@ -1,6 +1,6 @@
 ---
 - name: Install pichincha.sre collection from a repo.
-  ansible.builtin.command: ansible-galaxy collection publish git+https://github.com/phenomenone/pichincha.sre.git,main
+  ansible.builtin.command: ansible-galaxy collection publish git+https://github.com/phenomenone/pichincha.sre.git,24beb2e761166f87a8a412a7b4f41e8cba100f41
   register: result
 
 - name: Check installed collections
