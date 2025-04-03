@@ -15,7 +15,7 @@
     success_msg: "The collection pichincha.sre is installed."
 
 - name: Install pichincha.sre collection from a repo.
-  ansible.builtin.command: ansible-galaxy collection publish
+  ansible.builtin.command: ansible-galaxy collection publish /runner/requirements_collections/ansible_collections
   args:
     chdir: /runner/requirements_collections/ansible_collections/pichincha/sre
   register: result

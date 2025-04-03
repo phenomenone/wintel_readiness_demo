@@ -20,11 +20,15 @@
   ansible.builtin.include_role:
     name: pichincha.sre.wintel_readiness
   vars:
-    win_app_pools:
+    app_pools:
       - New-apppool-test
       - New-apppool-test-2
-    win_services:
+    services:
       - New-service-test
       - New-service-test-2
-    url_monitoreo:
+    url:
       - https://example.com
+    dynatrace_metrica: service.automatizaciondr
+    dynatrace_solucion: CardHolder
+    dynatrace_producto: CardHolder
+    dynatrace_grupo: Wintel
