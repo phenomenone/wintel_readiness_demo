@@ -26,7 +26,7 @@
     services:
       - New-service-test
       - New-service-test-2
-    url:
+    dynatrace_url:
       - https://example.com
     dynatrace_metrica: service.automatizaciondr
     dynatrace_solucion: CardHolder
