@@ -1,6 +1,13 @@
 ---
+# - name: Install pichincha.sre collection from a repo.
+#   ansible.builtin.command: ansible-galaxy collection install git+https://github.com/phenomenone/pichincha.sre.git,main
+#   register: result
+
+
 - name: Install pichincha.sre collection from a repo.
-  ansible.builtin.command: ansible-galaxy collection install git+https://github.com/phenomenone/pichincha.sre.git,main
+  ansible.builtin.command: ansible-galaxy collection publish . -vvv
+  args:
+    chdir: /runner/requirements_collections/ansible_collections/pichincha/sre
   register: result
 
 - name: Check installed collections
@@ -13,9 +20,3 @@
       - "'pichincha.sre' in result.stdout"
     fail_msg: "The collection pichincha.sre is not installed."
     success_msg: "The collection pichincha.sre is installed."
-
-- name: Install pichincha.sre collection from a repo.
-  ansible.builtin.command: ansible-galaxy collection publish /runner/requirements_collections/ansible_collections
-  args:
-    chdir: /runner/requirements_collections/ansible_collections/pichincha/sre
-  register: result
